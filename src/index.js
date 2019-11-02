@@ -8,7 +8,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux'; 
 import logger from 'redux-logger';
 
-const understanding = (state = '', action) => {
+const understanding = (state = 5, action) => {
     if (action.type==='SET_UNDERSTANDING'){
       return  action.payload;
     }

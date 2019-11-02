@@ -42,7 +42,7 @@ class App extends Component {
             </li>
           </ul>
           <Route exact path="/feeling" component={Feeling}/>
-          <Route exact path="/understanding" component={Understanding}/>
+          <Route exact path="/understanding" render={()=><Understanding understanding={this.props.understanding}/>}/>
           <Route exact path="/support" component={Support}/>
           <Route exact path="/comments" component={Comments}/>
           <Route exact path="/review" component={Review}/>

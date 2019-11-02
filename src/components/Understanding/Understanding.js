@@ -75,7 +75,7 @@ class Understanding extends Component {
         How well did you understand the content today?
         </Typography>
         <Slider
-        defaultValue={this.state.value}
+        defaultValue={this.props.understanding}
         aria-valuetext={this.marks.label}
         aria-labelledby="discrete-slider"
         valueLabelDisplay="auto"
