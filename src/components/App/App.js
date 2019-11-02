@@ -4,10 +4,7 @@ import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 
-
-import Feeling from '../Feeling/Feeling';
 import Rank from '../Rank/Rank';
-import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
 import Review from '../Review/Review';
 
@@ -48,7 +45,7 @@ class App extends Component {
           <Route exact path="/feeling" render={()=><Rank action='SET_FEELING' stringContent={this.feeling} default={this.props.feeling}/>}/>
           <Route exact path="/understanding" render={()=><Rank action='SET_UNDERSTANDING' stringContent={this.understand} default={this.props.understanding}/>}/>
           <Route exact path="/support" render={()=><Rank action='SET_SUPPORT' stringContent={this.support} default={this.props.support}/>}/>
-          <Route exact path="/comments" component={Comments}/>
+          <Route exact path="/comments" render={()=><Comments default={this.props.comments}/>}/>
           <Route exact path="/review" component={Review}/>
           </Router>
         <pre>{JSON.stringify(this.props, null, 2)}</pre>
