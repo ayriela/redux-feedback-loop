@@ -4,8 +4,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 
-class Understanding extends Component {
-     marks = [
+class Rank extends Component {
+    marks = [
         {
             value: 0,
             label: '0-Very Stressed',
@@ -57,7 +57,6 @@ class Understanding extends Component {
     };
 
     setValue=(value)=>{
-        console.log(value);
         this.setState({
             value: value,
         })
@@ -72,10 +71,10 @@ class Understanding extends Component {
     return (
       <div className="slide">
         <Typography id="discrete-slider" gutterBottom>
-        How well did you understand the content today?
+        {this.props.stringContent}
         </Typography>
         <Slider
-        defaultValue={this.props.understanding}
+        defaultValue={this.props.default}
         aria-valuetext={this.marks.label}
         aria-labelledby="discrete-slider"
         valueLabelDisplay="auto"
@@ -88,11 +87,11 @@ class Understanding extends Component {
         onChange={(e, val) => this.val = val}
         onChangeCommitted={() => this.setValue(this.val)}
       />
-       <Button className="next" onClick={()=>this.setStore('SET_UNDERSTANDING')}>NEXT</Button>
+       <Button className="next" onClick={()=>this.setStore(this.props.action)}>NEXT</Button>
        <pre>{JSON.stringify(this.state, null,2)}</pre>
       </div>
     );
   }
 }
 
-export default connect()(Understanding);
+export default connect()(Rank);

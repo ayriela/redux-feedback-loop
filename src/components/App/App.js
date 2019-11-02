@@ -6,13 +6,17 @@ import {connect} from 'react-redux';
 
 
 import Feeling from '../Feeling/Feeling';
-import Understanding from '../Understanding/Understanding';
+import Rank from '../Rank/Rank';
 import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
 import Review from '../Review/Review';
 
 
 class App extends Component {
+  understand='How well do you feel you understand the content this week?';
+  feel='How are you feeling this week?';
+  support='How supported are you feeling?';
+
   render() {
     return (
       <div className="App">
@@ -41,9 +45,9 @@ class App extends Component {
               <Link to="/review">Review</Link>
             </li>
           </ul>
-          <Route exact path="/feeling" component={Feeling}/>
-          <Route exact path="/understanding" render={()=><Understanding understanding={this.props.understanding}/>}/>
-          <Route exact path="/support" component={Support}/>
+          <Route exact path="/feeling" render={()=><Rank action='SET_FEELING' stringContent={this.feeling} default={this.props.feeling}/>}/>
+          <Route exact path="/understanding" render={()=><Rank action='SET_UNDERSTANDING' stringContent={this.understand} default={this.props.understanding}/>}/>
+          <Route exact path="/support" render={()=><Rank action='SET_SUPPORT' stringContent={this.support} default={this.props.support}/>}/>
           <Route exact path="/comments" component={Comments}/>
           <Route exact path="/review" component={Review}/>
           </Router>

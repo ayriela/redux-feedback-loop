@@ -17,11 +17,28 @@ const understanding = (state = 5, action) => {
   }
 
   
+  const feeling = (state = 5, action) => {
+    if (action.type==='SET_FEELING'){
+      return  action.payload;
+    }
+
+    return state;
+  }
+
+  const support = (state = 5, action) => {
+    if (action.type==='SET_SUPPORT'){
+      return  action.payload;
+    }
+
+    return state;
+  }
 
   
   
 const reduxStore = createStore(
     combineReducers({
+        support,
+        feeling,
       understanding,
     }),
     applyMiddleware(logger)
