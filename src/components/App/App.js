@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import {connect} from 'react-redux';
 
 
 import Feeling from '../Feeling/Feeling';
@@ -46,10 +47,14 @@ class App extends Component {
           <Route exact path="/comments" component={Comments}/>
           <Route exact path="/review" component={Review}/>
           </Router>
-      
+        <pre>{JSON.stringify(this.props, null, 2)}</pre>
       </div>
     );
   }
 }
 
-export default App;
+const mapReduxStateToProps=(reduxState)=>{
+  return reduxState;
+}
+
+export default connect(mapReduxStateToProps)(App);
