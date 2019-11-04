@@ -12,11 +12,9 @@ const understanding = (state = 5, action) => {
     if (action.type==='SET_UNDERSTANDING'){
       return  action.payload;
     }
-
     return state;
   }
 
-  
   const feeling = (state = 5, action) => {
     if (action.type==='SET_FEELING'){
       return  action.payload;
@@ -33,7 +31,6 @@ const understanding = (state = 5, action) => {
     return state;
   }
 
-
   const comments = (state = '', action) => {
     if (action.type==='SET_COMMENTS'){
       return  action.payload;
@@ -41,7 +38,6 @@ const understanding = (state = 5, action) => {
 
     return state;
   }
-  
   
 const reduxStore = createStore(
     combineReducers({

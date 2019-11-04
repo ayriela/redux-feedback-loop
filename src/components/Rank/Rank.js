@@ -3,6 +3,7 @@ import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 class Rank extends Component {
     marks = [
@@ -63,7 +64,8 @@ class Rank extends Component {
     }
       
     setStore=(actionType)=>{
-        this.props.dispatch({type: actionType, payload: this.state.value})
+        this.props.dispatch({type: actionType, payload: this.state.value});
+        this.props.history.push(this.props.direction.f);
     }
 
     
@@ -87,6 +89,7 @@ class Rank extends Component {
         onChange={(e, val) => this.val = val}
         onChangeCommitted={() => this.setValue(this.val)}
       />
+        <Button className="back" onClick={()=>this.props.history.push(this.props.direction.b)}>PREVIOUS</Button>
        <Button className="next" onClick={()=>this.setStore(this.props.action)}>NEXT</Button>
        <pre>{JSON.stringify(this.state, null,2)}</pre>
       </div>
@@ -94,4 +97,4 @@ class Rank extends Component {
   }
 }
 
-export default connect()(Rank);
+export default connect()(withRouter(Rank));

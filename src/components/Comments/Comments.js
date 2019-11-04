@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 
 
@@ -17,7 +18,8 @@ class Comments extends Component {
         })
     }
     setStore=(actionType)=>{
-        this.props.dispatch({type: actionType, payload: this.state.value})
+        this.props.dispatch({type: actionType, payload: this.state.value});
+        this.props.history.push(this.props.direction.f);
     }
 
   render() {
@@ -37,6 +39,10 @@ class Comments extends Component {
       />
        <Button 
        display="block"
+       className="back" 
+       onClick={()=>this.props.history.push(this.props.direction.b)}>PREVIOUS</Button>
+       <Button 
+       display="block"
        className="next" 
        onClick={()=>this.setStore('SET_COMMENTS')}>NEXT</Button>
       </div>
@@ -44,4 +50,4 @@ class Comments extends Component {
   }
 }
 
-export default connect()(Comments);
+export default connect()(withRouter(Comments));

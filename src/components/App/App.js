@@ -4,9 +4,11 @@ import './App.css';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 
+import Home from '../Home/Home';
 import Rank from '../Rank/Rank';
 import Comments from '../Comments/Comments';
 import Review from '../Review/Review';
+
 
 
 class App extends Component {
@@ -17,25 +19,25 @@ class App extends Component {
 
   //set directions for routes
   direction={
-    understanding:{
-      f: '/feeling',
+    feeling:{
+      f: '/understanding',
       b: '/',
     },
-    feeling:{
+    understanding:{
       f: '/support',
-      b: '/understanding',
-    },
-    support:{
-      f:'/comment',
       b: '/feeling',
     },
-    comment:{
+    support:{
+      f:'/comments',
+      b: '/understanding',
+    },
+    comments:{
       f: '/review',
       b: '/support',
     },
     review:{
       f: '/',
-      b: '/comment'
+      b: '/comments'
     },
   }
 
@@ -50,6 +52,7 @@ class App extends Component {
         <Router>
         <ul>
             <li>
+            <Link to="/">Home</Link>
             </li>
             <li>
               <Link to="/feeling">Feeling</Link>
@@ -67,18 +70,34 @@ class App extends Component {
               <Link to="/review">Review</Link>
             </li>
           </ul>
-          <Route exact path="/feeling" render={()=><Rank action='SET_FEELING' stringContent={this.feel} default={this.props.feeling}/>}/>
-          <Route exact path="/understanding" render={()=><Rank action='SET_UNDERSTANDING' stringContent={this.understand} default={this.props.understanding}/>}/>
+          <Route exact path="/" 
+          component={Home}/>
+          <Route exact path="/feeling" 
+          render={()=>
+            <Rank action='SET_FEELING' 
+            stringContent={this.feel} 
+            default={this.props.feeling}
+            direction={this.direction.feeling}/>}/>
+          <Route exact path="/understanding" 
+          render={()=>
+            <Rank action='SET_UNDERSTANDING' 
+            stringContent={this.understand} 
+            default={this.props.understanding}
+            direction={this.direction.understanding}/>}/>
           <Route exact path="/support" 
           render={()=>
-          <Rank action='SET_SUPPORT' 
-          stringContent={this.support} 
-          default={this.props.support}
-          direction={this.direction.support}/>}/>
+            <Rank action='SET_SUPPORT' 
+            stringContent={this.support} 
+            default={this.props.support}
+            direction={this.direction.support}/>}/>
           <Route exact path="/comments" 
           render={()=>
-          <Comments default={this.props.comments} direction={this.direction.comments}/>}/>
-          <Route exact path="/review" render={()=><Review direction={this.direction.review}/>}/>
+            <Comments 
+            default={this.props.comments} 
+            direction={this.direction.comments}/>}/>
+          <Route exact path="/review" 
+          render={()=>
+            <Review direction={this.direction.review}/>}/>
           </Router>
         <pre>{JSON.stringify(this.props, null, 2)}</pre>
       </div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
@@ -11,6 +11,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { withRouter } from 'react-router-dom';
 
 
 
@@ -48,6 +49,7 @@ class Review extends Component {
             dialog: false,
         });
         console.log(`closed dialog route next`);
+        this.props.history.push(this.props.direction.f);
 
     }
     
@@ -63,7 +65,7 @@ class Review extends Component {
                 <Typography>Comments: {this.props.comments}</Typography>
             </Card>
             <CardActionArea>
-                <Button>Go Back</Button>
+                <Button onClick={()=>this.props.history.push(this.props.direction.b)}>Go Back</Button>
                 <Button onClick={this.submitFeedback}>Submit</Button>
             </CardActionArea>
             <Dialog
@@ -91,4 +93,4 @@ const mapReduxStateToProps=(reduxState)=>{
     return reduxState;
 }
 
-export default connect(mapReduxStateToProps)(Review);
+export default connect(mapReduxStateToProps)(withRouter(Review));
