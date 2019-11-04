@@ -12,6 +12,8 @@ class Home extends Component {
        <Button 
        display="block"
        className="new" 
+       variant="contained"
+       color="primary"
        onClick={()=>this.props.history.push('/feeling')}>Leave New Feedback!</Button>
       </div>
     );

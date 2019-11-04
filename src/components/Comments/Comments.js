@@ -36,14 +36,19 @@ class Comments extends Component {
         className="textField"
         margin="normal"
         variant="outlined"
+        fullWidth
       />
        <Button 
-       display="block"
+       display="inline"
        className="back" 
+       variant="outlined"
+       color="primary"
        onClick={()=>this.props.history.push(this.props.direction.b)}>PREVIOUS</Button>
        <Button 
-       display="block"
+       display="inline-block"
        className="next" 
+       variant="contained"
+       color="primary"
        onClick={()=>this.setStore('SET_COMMENTS')}>NEXT</Button>
       </div>
     );

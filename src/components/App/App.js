@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import './App.css';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import Home from '../Home/Home';
@@ -17,7 +17,7 @@ class App extends Component {
   feel='How are you feeling this week?';
   support='How supported are you feeling?';
 
-  //set directions for routes
+  //set directions for routes f-forward and b-back 
   direction={
     feeling:{
       f: '/understanding',
@@ -50,26 +50,6 @@ class App extends Component {
         </header>
         <br/>
         <Router>
-        <ul>
-            <li>
-            <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/feeling">Feeling</Link>
-            </li>
-            <li>
-              <Link to="/understanding">Understanding</Link>
-            </li>
-            <li>
-              <Link to="/support">Support</Link>
-            </li>
-            <li>
-              <Link to="/comments">Comments</Link>
-            </li>
-            <li>
-              <Link to="/review">Review</Link>
-            </li>
-          </ul>
           <Route exact path="/" 
           component={Home}/>
           <Route exact path="/feeling" 
@@ -99,7 +79,6 @@ class App extends Component {
           render={()=>
             <Review direction={this.direction.review}/>}/>
           </Router>
-        <pre>{JSON.stringify(this.props, null, 2)}</pre>
       </div>
     );
   }

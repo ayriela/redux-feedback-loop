@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
+//import CardActionArea from "@material-ui/core/CardActionArea";
+//import CardActions from "@material-ui/core/CardActions";
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
@@ -19,7 +19,7 @@ class Review extends Component {
     state={
         dialog: false,
     }
-
+    //function to post the submission to the database
     submitFeedback=()=>{
         const feedback={
             feeling: this.props.feeling,
@@ -31,19 +31,19 @@ class Review extends Component {
             method: 'POST',
             url: '/feedback/submit',
             data: feedback,
-          }). then(() =>{
+          }).then(() =>{
             this.openDialog();
           }).catch( error =>
             console.log(`error in POST ${error}`)
           )
     }
-
+    //function to open dialog
     openDialog=()=>{
         this.setState({
             dialog: true,
         });
     }
-    
+    //function to close dialog and route to home
     closeDialog=()=>{
         this.setState({
             dialog: false,
@@ -52,7 +52,6 @@ class Review extends Component {
         this.props.history.push(this.props.direction.f);
 
     }
-    
 
   render() {
     return (
@@ -63,11 +62,12 @@ class Review extends Component {
                 <Typography>Understanding: {this.props.understanding}</Typography>
                 <Typography>Support: {this.props.support}</Typography>
                 <Typography>Comments: {this.props.comments}</Typography>
+                <Button variant="outlined" color="primary" className="back"
+                onClick={()=>this.props.history.push(this.props.direction.b)}>Go Back</Button>
+                <Button variant="contained" color="primary" 
+                onClick={this.submitFeedback}>Submit</Button>
             </Card>
-            <CardActionArea>
-                <Button onClick={()=>this.props.history.push(this.props.direction.b)}>Go Back</Button>
-                <Button onClick={this.submitFeedback}>Submit</Button>
-            </CardActionArea>
+            {/*Dialog Hit on Submission*/}
             <Dialog
                 open={this.state.dialog}
                 onClose={this.closeDialog}
@@ -83,7 +83,6 @@ class Review extends Component {
                         Close</Button>
                 </DialogActions>
             </Dialog>
-          <pre>{JSON.stringify(this.props,null,2)}</pre>
       </div>
     );
   }
