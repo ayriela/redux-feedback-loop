@@ -1,7 +1,7 @@
 # Redux-Feedback-Loop
-![REPO SIZE](https://img.shields.io/github/repo-size/ayriela/redux-feedback-loop-public.svg?style=flat-square)
-![TOP_LANGUAGE](https://img.shields.io/github/languages/top/ayriela/redux-feedback-loop-public.svg?style=flat-square)
-![FORKS](https://img.shields.io/github/forks/ayriela/redux-feedback-loop-public.svg?style=social)
+![REPO SIZE](https://img.shields.io/github/repo-size/ayriela/redux-feedback-loop.svg?style=flat-square)
+![TOP_LANGUAGE](https://img.shields.io/github/languages/top/ayriela/redux-feedback-loop.svg?style=flat-square)
+![FORKS](https://img.shields.io/github/forks/ayriela/redux-feedback-loop.svg?style=social)
 
 
 ## Description
