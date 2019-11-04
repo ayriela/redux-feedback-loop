@@ -64,24 +64,25 @@ class Review extends Component {
                 <Typography>Understanding: {this.props.understanding}</Typography>
                 <Typography>Support: {this.props.support}</Typography>
                 <Typography>Comments: {this.props.comments}</Typography>
-                <Button variant="outlined" color="primary" className="back"
+                <Button variant="contained" color="primary" style={{margin: "5px"}}
+                onClick={this.submitFeedback}>Submit</Button><br></br>
+                <Button variant="outlined" color="primary" 
                 onClick={()=>this.props.history.push(this.props.direction.b)}>Go Back</Button>
-                <Button variant="contained" color="primary" 
-                onClick={this.submitFeedback}>Submit</Button>
             </Card>
-            {/*Dialog Hit on Submission*/}
+            {/*Dialog Hit on Feedback Submission*/}
             <Dialog
+                
                 open={this.state.dialog}
                 onClose={this.closeDialog}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description">
-                <DialogTitle id="alert-dialog-title">{"Submission Received"}</DialogTitle>
-                <DialogContent>
+                <DialogTitle id="alert-dialog-title" style={{backgroundColor:'#CBFAD0'}}>{"Submission Received"}</DialogTitle>
+                <DialogContent style={{backgroundColor:'#CBFAD0'}}>
                     <DialogContentText id="alert-dialog-description">
                         Thanks for your feedback! </DialogContentText>
                 </DialogContent>
-                <DialogActions>
-                    <Button onClick={this.closeDialog} color="primary">
+                <DialogActions style={{backgroundColor:'#CBFAD0'}}>
+                    <Button onClick={this.closeDialog} variant="contained" color="primary">
                         Close</Button>
                 </DialogActions>
             </Dialog>
