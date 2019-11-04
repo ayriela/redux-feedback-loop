@@ -91,7 +91,7 @@ class Rank extends Component {
                 />
                 <Button className="back" 
                 variant="outlined" color="primary"
-                onClick={() => this.props.history.push(this.props.direction.b)}>PREVIOUS</Button>
+                onClick={() => {this.setStore(this.props.action); this.props.history.push(this.props.direction.b);}}>PREVIOUS</Button>
                 <Button className="next" 
                 variant="contained" color="primary"
                 onClick={() => this.setStore(this.props.action)}>NEXT</Button>

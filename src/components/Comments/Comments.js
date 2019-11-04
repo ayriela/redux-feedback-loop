@@ -9,7 +9,7 @@ import { withRouter } from 'react-router-dom';
 
 class Comments extends Component {
     state={
-        value: ''
+        value: this.props.default
     }
 
     setValue=(event)=>{
@@ -44,7 +44,7 @@ class Comments extends Component {
        className="back" 
        variant="outlined"
        color="primary"
-       onClick={()=>this.props.history.push(this.props.direction.b)}>PREVIOUS</Button>
+       onClick={()=>{this.setStore('SET_COMMENTS'); this.props.history.push(this.props.direction.b);}}>PREVIOUS</Button>
        <Button 
        display="inline-block"
        className="next" 

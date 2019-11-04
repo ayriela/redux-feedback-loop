@@ -48,6 +48,8 @@ class Review extends Component {
         this.setState({
             dialog: false,
         });
+        //reset the redux state
+        this.props.dispatch({type: 'RESET'});
         console.log(`closed dialog route next`);
         this.props.history.push(this.props.direction.f);
 
