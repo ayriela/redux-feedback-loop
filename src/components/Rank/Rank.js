@@ -54,7 +54,7 @@ class Rank extends Component {
     ];
 
     state = {
-        value: 5,
+        value: this.props.default,
     };
 
     setValue = (value) => {
