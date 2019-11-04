@@ -8,18 +8,19 @@ import { withRouter } from 'react-router-dom';
 
 
 class Comments extends Component {
+    //set by default to the reduxstate value
     state={
         value: this.props.default
     }
-
+    //update local state on typing
     setValue=(event)=>{
         this.setState({
             value: event.target.value,
         })
     }
+    //update reduxState value
     setStore=(actionType)=>{
         this.props.dispatch({type: actionType, payload: this.state.value});
-        this.props.history.push(this.props.direction.f);
     }
 
   render() {
@@ -50,7 +51,7 @@ class Comments extends Component {
        className="next" 
        variant="contained"
        color="primary"
-       onClick={()=>this.setStore('SET_COMMENTS')}>NEXT</Button>
+       onClick={()=>{this.setStore('SET_COMMENTS'); this.props.history.push(this.props.direction.f);}}>NEXT</Button>
       </div>
     );
   }

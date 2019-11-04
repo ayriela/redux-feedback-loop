@@ -4,9 +4,10 @@ import './index.css';
 import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
 
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers} from 'redux';
 import { Provider } from 'react-redux'; 
-import logger from 'redux-logger';
+//import { applyMiddleware } from 'redux';
+//import logger from 'redux-logger';
 
 const understanding = (state = 5, action) => {
     if (action.type==='SET_UNDERSTANDING'){
@@ -23,7 +24,6 @@ const understanding = (state = 5, action) => {
     } else if (action.type==='RESET'){
         return 5;
     }
-
     return state;
   }
 
@@ -33,7 +33,6 @@ const understanding = (state = 5, action) => {
     } else if (action.type==='RESET'){
         return 5;
     }
-
     return state;
   }
 
@@ -43,7 +42,6 @@ const understanding = (state = 5, action) => {
     } else if (action.type==='RESET'){
         return ''
     }
-
     return state;
   }
   
@@ -54,7 +52,7 @@ const reduxStore = createStore(
         feeling,
       understanding,
     }),
-    applyMiddleware(logger)
+    //applyMiddleware(logger)
   );
 
 

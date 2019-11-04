@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
+//material ui formatting
 import Card from "@material-ui/core/Card";
-//import CardActionArea from "@material-ui/core/CardActionArea";
-//import CardActions from "@material-ui/core/CardActions";
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import axios from 'axios';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+//bring in routing
 import { withRouter } from 'react-router-dom';
 
 
@@ -43,14 +43,13 @@ class Review extends Component {
             dialog: true,
         });
     }
-    //function to close dialog and route to home
+    //function to close dialog, reset redux, and route to home
     closeDialog=()=>{
         this.setState({
             dialog: false,
         });
         //reset the redux state
         this.props.dispatch({type: 'RESET'});
-        console.log(`closed dialog route next`);
         this.props.history.push(this.props.direction.f);
 
     }
