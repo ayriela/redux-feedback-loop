@@ -56,8 +56,8 @@ class Review extends Component {
   render() {
     return (
       <div className="review">
-            <Typography>Please Review your Feedback!</Typography>
-            <Card>
+            <Card className="reviewCard" style={{backgroundColor: '#CBFAD0'}}>
+                <Typography>Please Review your Feedback:</Typography>
                 <Typography>Feelings: {this.props.feeling}</Typography>
                 <Typography>Understanding: {this.props.understanding}</Typography>
                 <Typography>Support: {this.props.support}</Typography>

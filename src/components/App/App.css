@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  background-color: azure;
+  background-image: url('congruent_pentagon.png');
+  /* Background pattern from Toptal Subtle Patterns */
   min-height: 100vh;
 }
 #root{
@@ -14,7 +15,7 @@ body{
 }
 
 .App-header {
-  background-color: #0c5a43;
+  background-color: #232b2e;
   min-height: 70px;
   padding: 20px;
   color: white;
@@ -43,3 +44,7 @@ body{
   margin: auto;
 }
 
+.reviewCard{
+  padding: 20px 0px 20px 0px;
+  margin: 20px 0px 20px 0px;
+}

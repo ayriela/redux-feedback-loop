@@ -8,7 +8,8 @@ class Home extends Component {
   render() {
     return (
       <div className="home">
-       <Typography>Welcome to the Feedback Tracker! Click below to get started.</Typography>
+       <Typography>Welcome to the Feedback Tracker!</Typography>
+       <Typography>Click below to get started.</Typography>
        <Button 
        display="block"
        className="new" 

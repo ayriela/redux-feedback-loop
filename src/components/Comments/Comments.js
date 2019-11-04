@@ -37,6 +37,7 @@ class Comments extends Component {
         margin="normal"
         variant="outlined"
         fullWidth
+        color="primary"
       />
        <Button 
        display="inline"
