@@ -11,6 +11,7 @@ This site allows a user to navigate through a form to leave their EOD feedback a
 
 <!--## Screen Shot
 ![Screen Shot](ToDoExample.png)-->
+- [Link to the Deployed App](https://daily-feedback.herokuapp.com/#/)
 
 ### Prerequisites
 - [Node.js](https://nodejs.org/en/)
