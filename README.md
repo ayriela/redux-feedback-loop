@@ -9,8 +9,7 @@ Duration: Weekend Project
 
 This site allows a user to navigate through a form to leave their EOD feedback about the material they've learned. The user navigates through the questions with the PREVIOUS or NEXT buttons. Once on the review page, the user may then choose to submit the feedback that has been filled out or go back to modify their answers. If the user selects submit, the feedback will be posted to the database and the user will be presented with a dialog confirming their submission. 
 
-<!--## Screen Shot
-![Screen Shot](ToDoExample.png)-->
+
 
 ### Prerequisites
 - [Node.js](https://nodejs.org/en/)
